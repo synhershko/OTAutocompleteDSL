@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace OTAutocompleteDSL
 {
@@ -29,7 +30,10 @@ namespace OTAutocompleteDSL
                     {
                         matchedDefinition = rule;
                         matchLength = match.Length;
-                        value = source.Substring(match.Index, matchLength);
+                        if (!string.IsNullOrWhiteSpace(rule.TakeGroup))
+                            value = match.Groups[rule.TakeGroup].Value;
+                        else
+                            value = source.Substring(match.Index, matchLength);
                         source = source.Remove(match.Index, matchLength).Trim();
                         break;
                     }

@@ -14,12 +14,14 @@ namespace OTAutocompleteDSLTester
             {
                 Regex = new Regex(@"in (?<location>.*)", RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.Singleline),
                 Type = "location_in",
+                TakeGroup = "location",
             });
 
             lexer.AddDefinition(new TokenDefinition
             {
                 Regex = new Regex(@"(near|by|around) (?<location>.*)", RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.Singleline),
                 Type = "location_near",
+                TakeGroup = "location",
             });
 
             lexer.AddDefinition(new TokenDefinition
@@ -49,6 +51,7 @@ namespace OTAutocompleteDSLTester
             var queries = new[]
             {
                 "tonight in london",
+                "in london tonight",
                 "the best italian in London",
                 "restaurants around Birmington",
                 "cheap italian restaurant",

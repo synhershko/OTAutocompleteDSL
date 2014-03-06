@@ -7,5 +7,6 @@ namespace OTAutocompleteDSL
         public bool IsIgnored { get; set; }
         public Regex Regex { get; set; }
         public string Type { get; set; }
+        public string TakeGroup { get; set; }
     }
 }
