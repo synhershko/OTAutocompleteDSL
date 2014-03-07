@@ -12,14 +12,14 @@ namespace OTAutocompleteDSLTester
 
             lexer.AddDefinition(new TokenDefinition
             {
-                Regex = new Regex(@"in (?<location>.*)", RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.Singleline),
+                Regex = new Regex(@"(in|at)\s+(?<location>.*)", RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.Singleline),
                 Type = "location_in",
                 TakeGroup = "location",
             });
 
             lexer.AddDefinition(new TokenDefinition
             {
-                Regex = new Regex(@"(near|by|around) (?<location>.*)", RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.Singleline),
+                Regex = new Regex(@"(near|by|around)\s+(?<location>.*)", RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.Singleline),
                 Type = "location_near",
                 TakeGroup = "location",
             });
@@ -68,6 +68,15 @@ namespace OTAutocompleteDSLTester
                 RunQuery(query, lexer);
                 Console.WriteLine("=================");
             }
+
+            while (true)
+            {
+                var str = Console.ReadLine();
+                if (string.IsNullOrWhiteSpace(str))
+                    break;
+                RunQuery(str, lexer);
+                Console.WriteLine("=================");
+            }            
         }
 
         static void RunQuery(string query, ILexer lexer)
