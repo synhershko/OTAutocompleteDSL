@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using opennlp.tools.namefind;
 using opennlp.tools.tokenize;
@@ -53,6 +54,7 @@ namespace OTAutocompleteDSL
 
         public ILexer InitNow()
         {
+            Console.WriteLine("Loading...");
             _tokenizer = prepareTokenizer();
             _nameFinder = prepareNameFinder();
             _locationFinder = prepareLocationFinder();
