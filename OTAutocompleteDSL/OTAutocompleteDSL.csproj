@@ -63,7 +63,8 @@
     <Compile Include="Lexer\ILexer.cs" />
     <Compile Include="Lexer\DeletingLexer.cs" />
     <Compile Include="Lexer\Lexer.cs" />
-    <Compile Include="NLPLexer.cs" />
+    <Compile Include="NLP\NLPLexer.cs" />
+    <Compile Include="NLP\POSLexer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Token.cs" />
     <Compile Include="TokenDefinition.cs" />
