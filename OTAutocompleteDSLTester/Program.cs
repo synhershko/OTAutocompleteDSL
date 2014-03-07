@@ -8,7 +8,7 @@ namespace OTAutocompleteDSLTester
     {
         static void Main(string[] args)
         {
-            var lexer = new DeletingLexer();
+            var lexer = new NLPLexer().InitNow();
 
             lexer.AddDefinition(new TokenDefinition
             {
